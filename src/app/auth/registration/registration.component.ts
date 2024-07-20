@@ -46,7 +46,11 @@ export class RegistrationComponent {
 
 	onSubmit() {
 		this.SigninForm.markAllAsTouched();
+		console.log(this.SigninForm);
 		if (this.SigninForm.valid) {
+			console.log(this.SigninForm);
+
+			this.router.navigate(['/auth/login']);
 		}
 	}
 

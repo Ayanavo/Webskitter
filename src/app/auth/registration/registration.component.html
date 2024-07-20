@@ -9,6 +9,7 @@
 					</label>
 					<input
 						type="text"
+						autocomplete="cc-given-name"
 						formControlName="username"
 						[ngClass]="{ 'form-control': true, 'required-field': FieldControlUser.touched && FieldControlUser.errors?.['required'] }" />
 					<error-msg [control]="'username'"></error-msg>
@@ -22,10 +23,6 @@
 						formControlName="email"
 						[ngClass]="{ 'form-control': true, 'required-field': FieldControlEmail.touched && FieldControlEmail.errors?.['required'] }" />
 					<error-msg [control]="'email'"></error-msg>
-
-					<!-- <span *ngIf="ControlAccess['help']" class="col-1 d-flex align-items-center"
-            ><i-bs class="cursor-pointer text-success" name="exclamation-circle" width="15" height="15" placement="right" [ngbPopover]="ControlAccess['help']" container="body" triggers="mouseenter:mouseleave"> </i-bs
-        ></span> -->
 				</div>
 
 				<div class="mb-3 row needs-validation">
