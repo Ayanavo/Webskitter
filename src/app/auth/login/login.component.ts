@@ -1,14 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { ErrorMsgComponent } from '../../shared/error-msg/error-msg.component';
-import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import {
 	FormControl,
 	FormGroup,
-	Validators,
 	ReactiveFormsModule,
+	Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { ErrorMsgComponent } from '../../shared/error-msg/error-msg.component';
 
 @Component({
 	selector: 'app-login',
