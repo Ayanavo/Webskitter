@@ -1,0 +1,8 @@
+@if (FormControl.touched && FormControl.invalid) { @if
+(FormControl.errors?.['required']) {
+<div class="text-danger">Field is required!</div>
+} @if (FormControl.errors?.['patternMatchError']) {
+<div class="text-danger">Password pattern did not match!</div>
+} @if (FormControl.errors?.['email']) {
+<div class="text-danger">Email is not valid!</div>
+} }

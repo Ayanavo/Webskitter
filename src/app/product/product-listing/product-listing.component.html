@@ -1,0 +1,43 @@
+<mat-form-field appearance="outline">
+	<mat-label>Search</mat-label>
+	<input matInput type="search" (keyup)="applyFilter($event)" #input />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" matSort>
+	@for( column of displayedColumns; track $index){
+	<ng-container matColumnDef="{{ column }}">
+		<th
+			class="text-capitalize"
+			mat-header-cell
+			*matHeaderCellDef
+			mat-sort-header>
+			{{ column }}
+		</th>
+
+		<td
+			mat-cell
+			*matCellDef="let row"
+			class="text-truncate"
+			style="max-width: 150px">
+			@if (row[column]) {
+			{{ row[column] }}
+			} @else {
+			<button mat-stroked-button (click)="openDetails(row)">Details</button>
+			}
+		</td>
+	</ng-container>
+	}
+
+	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+	<tr class="mat-row" *matNoDataRow>
+		<td class="mat-cell text-center" colspan="80000">
+			No data matching the filter "{{ input.value }}"
+		</td>
+	</tr>
+</table>
+
+<mat-paginator
+	[pageSizeOptions]="[5, 10, 25, 100]"
+	aria-label="Select page of users"></mat-paginator>
