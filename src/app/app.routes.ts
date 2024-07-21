@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { authGuard } from '../app/auth.guard';
 
 export const routes: Routes = [
 	{
@@ -25,7 +24,7 @@ export const routes: Routes = [
 			import('./product/product-listing/product-listing.component').then(
 				(c) => c.ProductListingComponent
 			),
-		canActivate: [authGuard],
+		canActivate: [() => !!localStorage.getItem('auth_token')],
 	},
 	{
 		path: 'details/:id',
@@ -33,6 +32,11 @@ export const routes: Routes = [
 			import('./product/product-detail/product-detail.component').then(
 				(c) => c.ProductDetailComponent
 			),
-		canActivate: [authGuard],
+		canActivate: [() => !!localStorage.getItem('auth_token')],
+	},
+	{
+		path: '**',
+		redirectTo: 'auth/login',
+		pathMatch: 'full',
 	},
 ];

@@ -38,7 +38,6 @@ export class ProductListingComponent implements AfterViewInit {
 		'brand',
 		'sku',
 		'weight',
-		'dimensions',
 		'warrantyInformation',
 		'shippingInformation',
 		'availabilityStatus',
@@ -66,5 +65,10 @@ export class ProductListingComponent implements AfterViewInit {
 			state: { data: detailData },
 		};
 		this.router.navigate(['./details', detailData.id], navigationExtras);
+	}
+
+	Logout() {
+		localStorage.clear();
+		this.router.navigate(['/auth/login']);
 	}
 }
